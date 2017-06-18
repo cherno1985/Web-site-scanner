@@ -1,0 +1,38 @@
+import os
+import time
+import keyboard
+import pyautogui as doing
+import openpyxl
+
+
+#Location of the ScreamingFrogSEOSpider.exe:
+frog = "XXXXX\ScreamingFrogSEOSpider.exe" 
+
+#xl file containing the addresses to be scanned:
+urls = "XXXX\Urls.xlsx"
+
+wb = openpyxl.load_workbook(urls)
+ws = wb.get_sheet_by_name("Sheet1")
+
+def insert_me(url):
+    # time.sleep(3)
+    keyboard.write(value)
+    doing.press('enter')
+    time.sleep(5)
+
+counter = 0
+start, end = 2, 7
+
+for part in range(0, 5):
+    for row in range(start, end):
+        os.startfile(frog)
+        #Since working with this takes a lot of time - teh program should rest between on execution to the next
+        time.sleep(35) 
+        value = ws.cell(row=row, column=1).value \\sites w/o the http stuff and other slashes
+        print value
+        insert_me(value)
+        time.sleep(10)
+    start += 5
+    end += 5
+    counter += 1
+    print "part number ", counter, " from ", start, " to ", end
